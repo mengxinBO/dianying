@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			div{
+				width: 100px;
+				height: 100px;
+			}
+			
+			.play{
+				background-color: #ADFF2F;
+			}
+			
+			.pause{
+				background-color: gray;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="pause"></div>
+		<label>选中 <input type="checkbox" checked=""></label>
+		<script src="../JQ/jquery-3.4.1.js"></script>
+		<script type="text/javascript">
+			$("input[type=checkbox]").change(function(){
+				console.log($(this).prop("checked"));//在checkbox中用prop而不是attr
+			})
+			
+			$("div").click(function(){
+				$(this).toggleClass("pause");
+				$(this).toggleClass("play");
+			})
+		</script>
+	</body>
+</html>

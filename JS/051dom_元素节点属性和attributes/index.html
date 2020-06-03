@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript" src="tool.js"></script>
+		<script type="text/javascript">
+			/*
+				ownerDocument 属性
+				【注】ownerDocument
+				属性返回该节点的文档对象根节点，返回的对象相当于document。
+				
+				parentNode、previousSibling、nextSibling 属性
+				
+				parentNode		返回该节点的父节点
+				previousSibling 	返回该节点的前一个同级节点
+				nextSibling 	返回该节点的后一个同级节点
+			*/
+		   
+		   window.onload = function(){
+			   var oDiv = document.getElementById("div1");
+			   // alert(oDiv.ownerDocument == document); // true
+			   // alert(oDiv.parentNode.nodeName); //BODY
+			   removeSpaceNode2(oDiv.parentNode);
+			   alert(oDiv.previousSibling.nodeName); //SPAN
+		   }
+		</script>
+	</head>
+	<body>
+		<span></span>
+		<div id="div1"></div>
+		<p></p>
+	</body>
+</html>

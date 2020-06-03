@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			#test{
+				width: 300px;
+				height: 300px;
+				background-color: blue;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="test">ccc</div>
+		<script type="text/javascript">
+			var oDiv = document.getElementById("test");
+			oDiv.onclick = function(e){
+				console.log(e); // IE低版本不可用
+				console.log(window.event); //适用IE低版本
+				var evt = e || event;
+				console.log(evt); //在任何浏览器中都可用
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript" src="../tool.js"></script>
+		<script type="text/javascript">
+			/*
+			inserBefore()
+			【格式】父节点.inserBefore(插入的节点，旧节点)；
+			功能：将插入的节点插入到旧节点之前。
+			*/
+		   window.onload = function(){
+			   //创建一个<<strong>将这个节点插入到span节点之前
+			   
+			   //<1>创建strong
+			   var node = createElementWithTxt("strong","strong文本");
+			   var oSpan = document.getElementsByTagName("span")[0];
+			   //<2>进行插入
+			   // oSpan.parentNode.insertBefore(node,oSpan);
+			   inserAfter(node,oSpan);
+		   }
+		   /*
+				DOM里inserBefore()这个方法没有
+				插入到节点之后
+		   */
+		  function inserAfter(newNode,oldNode){
+			  //判断old是否是最后一个
+			  var parent = oldNode.parentNode;
+			  if(oldNode == parent.lastChild){
+				  parent.appendChild(newNode);
+			  }else{
+				  //插入到oldNode的下一个节点之前
+				  parent.insertBefore(newNode,oldNode.nextSibling);
+			  }
+			  
+		  }
+		</script>
+	</head>
+	<body>
+		<div id="div1">
+			<p>ppp</p>
+			<span>span</span>
+			<em>斜体</em>
+		</div>
+	</body>
+</html>

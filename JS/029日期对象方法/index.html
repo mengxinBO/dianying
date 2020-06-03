@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+			/*
+				日期对象格式化方法： 通过某种格式输出
+				【格式】日期对象.方法（）；
+			*/
+		   var d = new Date();
+		   // alert(d.toDateString()); //Mon Feb 24 2020
+		   // alert(d.toLocaleDateString());//2020/2/24
+		   
+		   /*
+				set系列的函数	是设置值
+				get系列的函数	是获取值
+		   */
+
+		  // alert(d.getDate());//24
+		  // d.setDate(6); //修改本月的日.
+		  // alert(d);
+		  
+		  /*
+			获取一周中的某一天，从0开始的，星期0代表的是周日。只能获取不能设置。
+			getDay（）
+			获取月份的时候，从0开始。
+			set/getMonth()
+		  */
+		 
+		 // alert(d.getDay()); //1
+		 // alert(d.getMonth()); //1
+		 d.setMonth(4);
+		 alert(d);
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

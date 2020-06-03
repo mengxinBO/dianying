@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			
+			ul{
+				list-style: none;
+			}
+			
+			.slier{
+				width: 200px;
+				height: 200px;
+				border: 3px solid greenyellow;
+				position: relative;
+			}
+			
+			.slier .list .item{
+				position: absolute;
+				left: 0px;
+				top: 0px;
+				opacity: 0;
+			}
+			
+			.slier .list .item:first-of-type{
+				opacity: 1;
+			}
+			
+			.slier .list .item img{
+				width: 200px;
+				height: 200px;
+				display: block;
+			}
+			
+			.slier .next, .slier .prev{
+				position: absolute;
+				top: 90px;
+			}
+			.slier .next{
+				right: 0;
+			}
+			
+			.slier .pagination{
+				position: relative;
+				top: 170px;
+			}
+			
+			.slier .pagination .bullet{
+				width: 10px;
+				height: 10px;
+				background-color: black;
+				float: left;
+				margin-left: 5px;
+				border: 1px solid white;
+				cursor: pointer; /* 当光标放入时可变成一个小手 */
+				color: white;
+				line-height: 8px;
+				font-size: 3px;
+				text-align: center;
+			}
+			.slier .pagination .bullet.focus{
+				background-color: #ADFF2F;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="slier">
+			<ul class="list">
+				<li class="item"><img src="../img/1.jpg" alt=""></li>
+				<li class="item"><img src="../img/2.jpg" alt=""></li>
+				<li class="item"><img src="../img/3.jpg" alt=""></li>
+				<li class="item"><img src="../img/4.jpg" alt=""></li>
+				
+			</ul>
+			<button class="prev">prev</button>
+			<button class="next">next</button>
+			<ul class="pagination">
+				<li class="bullet focus">1</li>
+				<li class="bullet">2</li>
+				<li class="bullet">3</li>
+				<li class="bullet">4</li>
+			</ul>
+		</div>
+		<script src="../071js_animation_封装动画函数/animation.js"></script>
+		<script type="text/javascript">
+			// (function(){
+				var prevIndex, nextIndex;
+				var len;
+				var id;
+				
+				init();
+				function init(){
+					prevIndex = nextIndex = 0;
+					var len = document.querySelectorAll(".list .item").length;
+					document.querySelector(".prev").onclick = function(){
+						slierPrev();
+					}
+					document.querySelector(".next").onclick = function(){
+						slierNext();
+					}
+					
+					var bullets = document.querySelectorAll(".slier .pagination .bullet");
+					for(var i=0;i < bullets.length; i++){
+						bullets[i].index = i;
+						bullets[i].onclick = function(){
+							prevIndex = nextIndex;
+							nextIndex = this.index;
+							slierTo(prevIndex,nextIndex);
+						}
+					}
+					
+					var slier = document.querySelector(".slier");
+					slier.onmouseover = function(){
+						stop();
+					}
+					
+					slier.onmouseout = function(){
+						auto();
+					}
+					auto();
+				}
+				
+				function slierPrev(){
+					
+					prevIndex = nextIndex;
+					nextIndex--;
+					if(nextIndex == -1){
+						nextIndex = len -1;
+					}
+					slierTo(prevIndex, nextIndex);
+				}
+				
+				function slierNext(){
+					prevIndex = nextIndex;
+					nextIndex++;
+					if(nextIndex == len){
+						nextIndex = 0;
+					}
+					slierTo(prevIndex, nextIndex);
+				}
+				
+				function slierTo(prev, next){
+					var lis = document.querySelectorAll(".list .item");
+					var bullets = document.querySelectorAll(".slier .pagination .bullet");
+					
+					bullets[prev].className = "bullet";
+					bullets[next].className = "bullet focus";
+					
+					animate(lis[prev], {opacity: 0});
+					animate(lis[next], {opacity: 100});
+				}
+				
+				//自动轮播
+				function auto(){
+					clearInterval(id);
+					id = setInterval(function(){
+						slierNext();
+					},2000)
+				}
+				
+				function stop(){
+					clearInterval(id);
+				}
+			// })()
+		</script>
+	</body>
+</html>

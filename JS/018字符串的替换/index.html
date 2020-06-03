@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+			/*
+				repalce()
+				【格式】字符串.replace(匹配的字符串/正则表达式，
+						替换成新的字符串)
+				返回值：替换完成以后生成的新字符串。
+				想替换所有符合条件的字符串，就必须使用正则表达式。
+			*/
+		   var str="how are are you";
+		   // alert(str.replace("are","old")); //how old are you
+		   alert(str.replace(/are/g,"old are"));// 替换所有的"are"
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

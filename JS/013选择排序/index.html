@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+			/*
+				【注】选择排序法
+				【原理】通过比较，首先选出最小的数放在第一个位置上，然后在其余数中
+						选出次小数放在第二个位置，以此类推，直到所有的数成为有序序列
+			*/
+		   var arr = [9,8,7,6,5,4];
+		   for(var i = 0;i<arr.length-1;i++){
+			   for(var j = i+1;j<arr.length;j++){
+				   if(arr[j]<arr[i]){
+					   var tmp=arr[j];
+					   arr[j]=arr[i];
+					   arr[i]=tmp;
+				   }
+			   }
+		   }
+		   alert(arr);
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

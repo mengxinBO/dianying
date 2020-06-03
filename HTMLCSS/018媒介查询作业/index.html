@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		html,body{
+			width: 100%;
+			height: 100%;
+		}
+		ul{
+			margin-left: 20px;
+		}
+		.box{
+			width: 80%;
+			border: 2px solid greenyellow;
+		}
+		.left{
+			width: 200px;
+			border: 1px solid blue;
+			float: left;
+		}
+		.right{
+			margin-left: 200px;
+		}
+		.right>p{
+			border: 1px solid red;
+			padding: 5px;
+		}
+		@media only screen and (max-width:600px) {
+			.left{
+				float: none;
+				width: 100%;
+				overflow: hidden;
+				
+				padding: 0;
+			}
+			li{
+				float: left;
+				list-style: none;
+				margin-left: 5px;
+			}
+			.right{
+				margin: 0;
+			}
+		}
+	</style>
+	<body>
+		<div class="box">
+			<div class="left">
+				<ul>
+					<li>列表1</li>
+					<li>列表2</li>
+					<li>列表3</li>
+					<li>列表4</li>
+					<li>列表5</li>
+				</ul>
+			</div>
+			
+			<div class="right">
+				<p>文字1文字1文字1文字1文字1文字1文字1文字1文字1文字1文字1
+				文字1文字1文字1文字1文字1文字1文字1文字1文字1文字1文字1</p>
+				
+			
+			<p>
+				文字2文字2文字2文字2文字2文字2文字2文字2文字2文字2文字2文字2文字2文字2文字2
+				文字2文字2文字2文字2文字2文字2文字2文字2文字2文字2文字2文字2
+			</p>
+			</div>
+		</div>
+	</body>
+</html>

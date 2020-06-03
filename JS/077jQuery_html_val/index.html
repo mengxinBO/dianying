@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<ul>
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+			<li>5</li>
+		</ul>
+		<input type="text" />
+		<script src="../JQ/jquery-3.4.1.js"></script>
+		<script type="text/javascript">
+			// $("li").html("li");
+			// alert($("ul").html()); //设定和取得其中的内容
+			
+			$("input").keyup(function(){ //键位抬起时执行
+				// alert($(this).val()); // val可以设定input标签的value内容
+				
+				var v = $(this).val();
+				if(v.slice(-2) !== "px"){
+					
+				$(this).val(v + "px");
+				}
+			})
+		</script>
+	</body>
+</html>

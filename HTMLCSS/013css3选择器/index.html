@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<style>
+		/* 1.按顺序查找元素  n表示符号  n从0开始
+			选择器E:nth-child(n){
+				
+			} */
+			
+			/* li:nth-child(1){
+				background-color: blue;
+			} */
+			
+/* 			2.
+			选择器E:nth-child(2n) n从0开始  0 2 3=4 6 8 {}
+			选择器E:nth-child(even){}
+			找到序号为偶数的元素 */
+			
+/* 			3.
+			选择器E:nth-child(2n+1){}
+			选择器E:nth-child(odd){}
+			找到序号为奇数的元素 */
+			
+/* 			4.
+			选择器E:nth-child(-n+number)
+					找到父级里需要在number之前的元素(包括第number个元素) */
+			
+/* 			li:nth-child(-n+6){
+				background-color: red;
+			} */
+			
+/* 			li:nth-child(n+7){
+				background-color: blue;
+			} */
+			
+/* 			li:nth-child(-n+8){
+				background-color: red;
+			}
+			li:nth-child(-n+2){
+				background-color: white;
+			}
+			第三到八的元素 */
+			
+/* 			li:nth-child(-n+8):nth-child(n+3){
+				background-color: red;
+			} */
+			
+/* 			5.
+			li:nth-of-type(8){
+				background-color: red;
+			} */
+			
+/* 			1. :nth-child 选择器 	元素类型相同,没有干扰项
+			2. :nth-of-type 选择器 		元素类型不同,有干扰项
+			在没有干扰项元素存在时,两个选择器等价 */
+			@media only screen and {
+				
+			}
+
+	</style>
+	<body>
+		<ul>
+			<li>列表项</li>
+			<li>列表项</li>
+			<li>列表项</li>
+			<li>列表项</li>
+			<li>列表项</li>
+			<li>列表项</li>
+			<li>列表项</li>
+			<li>列表项</li>
+			<li>列表项</li>
+			<li>列表项</li>
+		</ul>
+		<hr />
+		<ol>
+			<li>列表项</li>
+			<li>列表项</li>
+			<li>列表项</li>
+			<li>列表项</li>
+			<li>列表项</li>
+			<li>列表项</li>
+			<li>列表项</li>
+			<li>列表项</li>
+			<li>列表项</li>
+			<li>列表项</li>
+		</ol>
+	</body>
+</html>

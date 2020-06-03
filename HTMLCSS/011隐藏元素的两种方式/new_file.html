@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.A{
+			width: 200px;
+			height: 200px;
+			background-color: red;
+			/* display: none; */
+			/* visibility: hidden; */
+			/* opacity: 0;		透明度为0; */
+		}
+		.B{
+			width: 200px;
+			height: 200px;
+			background-color: #ADFF2F;
+			position: relative;	 	/* 相对布局 */
+		}
+		.C{
+			width: 100px;
+			height: 100px;
+			background-color: deeppink;
+			position: absolute;			/* 绝对布局 */
+			left: 200px; 
+			 display: none;
+		}
+		.B:hover .C{
+			display: block;		 /* 变成块元素 */
+		}
+		
+/* 		相邻兄弟选择器
+			语法:
+			选择器1+选择器2+...{
+				
+			}
+			找到与选择器1表示的元素相邻且在其下面的选择器2表示的元素. */
+		.A+.B{
+			border: 3px solid green;
+		}
+		
+		.A:hover+.B{
+			display: none;
+		}
+		
+		ul>li+li{
+			background-color: blue;
+		}
+	</style>
+	<body>
+		
+		<!-- 		两个隐藏元素的区别：
+				display:none   隐藏的元素失去自己的位置。
+				visibility:hidden  隐藏元素保留自己的位置。 -->
+		<div class="A"></div>
+		<div class="B">
+			<div class="C"></div>
+		</div>
+
+
+
+		<ul>
+			<li>列表1</li>
+			<li>列表2</li>
+			<li>列表3</li>
+			<li>列表4</li>
+			<li>列表5</li>
+		</ul>
+	</body>
+</html>

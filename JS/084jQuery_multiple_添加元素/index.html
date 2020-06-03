@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<ul>
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+			<li>5</li>
+		</ul>
+		<button type="button">删除节点</button>
+		<script src="../JQ/jquery-3.4.1.js"></script>
+		<script type="text/javascript">
+			var $el = $('<div><h1>新元素</h1></div>');
+			//将新元素添加到body内部并作为最后一个孩子
+			$('body').append($el);
+			$el.appendTo('body');
+			
+			var $newFirst = $('<li>0</li>');
+			//将新元素添加到body内部并作为第一个孩子
+			$('ul').prepend($newFirst);
+			$newFirst.prependTo('ul');
+			
+			//将某个节点添加到原有节点之后
+			$('li:eq(3)').after('<li>3.5</li>');
+			$('<li>4.5</li>').insertAfter('li:eq(5)');
+			
+			$('button').click(function(){
+				// $('li:last').remove(); //删除节点
+				$('li:last').empty(); //不删除节点，只清空内容
+			})
+		</script>
+	</body>
+</html>

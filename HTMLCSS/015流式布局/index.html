@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		html,body{
+			width: 100%;
+			height: 100%;
+		}
+		.div1{
+			width: 100%;
+			height: 50%;
+			border: 2px solid red;
+			margin: 0px auto;
+/* 			font-size: 100%; */
+		}
+		.div2{
+			width: 50%;
+			height: 50%;
+			background-color: blue;
+/* 			font-size: 50%; */
+		}
+	</style>
+	<body>
+		
+<!-- 			流式布局：百分比布局， 在设置元素的尺寸大小时，不再使用px数值，改用百分比
+			1.百分比布局的好处
+				通过百分比布局的元素，其尺寸大小会跟随浏览器的尺寸变化自动改变大小进而适配窗口
+			2.百分比布局的计算规则
+				2.1 .元素的宽高设置百分比时，计算参考是父元素的宽高
+				2.2 .margin，padding值设置百分比时，计算的参考是父元素的宽，跟高度没有关系！！
+				
+			百分比布局的易错点：
+				元素的高度在设置百分比时，需要尤为注意：因为一个元素的高度如果不认为设置，则是由其
+				里面的子元素撑出的，而如果子元素的高度设置成百分比，其高度又是相对于父元素的，这样
+				就形成了依赖的死循环，结果都没高度。 -->
+			
+<!-- 			解决办法：把html和body的高度都设置成与文档的大小相同，保证body的高度是已经存在的
+			而不是由内容撑出的，这样再给body的子元素设置高度，就有值了！！！ -->
+		<div class="div1">
+			<div class="div2"></div>
+		</div>
+	</body>
+</html>

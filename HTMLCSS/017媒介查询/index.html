@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<style type="text/css">
+		html,body{
+			width: 100%;
+			height: 100%;
+			/* background-color: red; */
+			margin: 0;
+		}
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		
+		
+		/* 监听浏览器的宽度,如果宽度小于500px时,将body的背景色由红色改为黄色 */
+			
+			/* 媒介查询:
+				语法:
+				@media 要监听的媒介类型 and  (监听的临界值){
+					
+				}
+				要监听的媒介类型
+				1.only screen 手机,平板,电脑
+				2.print 打印机
+				3.speech 读音设置
+				4.all 所有设置 */
+				
+				/* 只要达到了要监听的临界值,就会触发对应媒介查询大括号里的代码 */
+				/* 
+				监听宽度小于某个值,max-width:npx 表示该媒介查询能监听到的最大宽度是npx
+				意味着可监听的范围小于npx
+				监听宽度大于某个值,min-width:npx 表示该媒介查询能监听到的最小宽度是npx
+				意味着可监听的范围大于npx */
+				/* 
+				@media only screen and (max-width : 600px) {
+					body{
+						background-color: yellow;
+					}
+				} */
+				/* 
+				@media only screen and (min-width:400px) and (max-width:800px) {
+					body{
+						background-color: cyan;
+					}
+				} */
+				
+				
+				.box{
+					width: 80%;
+					height: 30%;
+					border: 2px solid red;
+					/* background-color: #0000FF; */
+					margin: 20px auto;
+					/* box-sizing: border-box; */
+					
+				}
+				.box>div{
+					width: 20%;
+					height: 100%;
+					float: left;
+					background-color: red;
+					margin: 0 2.5%;
+				}
+				@media only screen and (max-width:700px) {
+					.box>div{
+						
+						width: 40%;
+						height: 40%;
+						margin: 5%;
+					}
+				}
+	</style>
+	<!-- 如果要通过媒介查询引入某个外联css文件，还是要使用link标签 -->
+	<!-- <link rel="stylesheet"  media="screen and (max-width:600px)" href="new_file.css" /> -->
+	<body>
+		<!-- 
+			媒介查询：通过监听设备的尺寸（宽或者高）触发对应媒介查询
+			我们可以在对应的条件媒介里通过书写css样式，达到改变页面布局的目的，
+			
+			媒介查询是css语法 -->
+			<div class="box">
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+			</div>
+			
+	</body>
+</html>

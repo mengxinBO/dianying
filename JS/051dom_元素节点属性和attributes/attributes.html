@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+			/*
+				属性节点
+				attribute属性 返回该节点的属性节点【集合】
+				集合特点：1、不重复	2、无序
+				
+				属性
+				attributes.length 	返回属性节点个数
+			*/
+		   window.onload = function(){
+			   var oDiv = document.getElementById("div1");
+			   // alert(oDiv.attributes); //[object NamedNodeMap]
+			   // alert(oDiv.attributes.length); // 4
+			   
+			   //访问其中的一个属性节点
+			   // alert(oDiv.attributes.getNamedItem("id")); //[object Attr]
+			   // alert(oDiv.attributes["id"]);
+			   
+			/*
+				属性节点
+					nodeName	nodeType	nodeValue
+					  属性名		  类型2		  值
+			*/
+		   alert(oDiv.attributes["id"].nodeName); //id
+		   alert(oDiv.attributes["id"].nodeType); //2
+		   alert(oDiv.attributes["id"].nodeValue); // div1
+		   }
+		</script>
+	</head>
+	<body>
+		<div id="div1" title="hello" name = "world" class="box" ></div>
+	</body>
+</html>

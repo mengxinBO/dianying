@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<ul>
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+			<li>5</li>
+			<li>6</li>
+		</ul>
+		<script src="../JQ/jquery-3.4.1.js"></script>
+		<script type="text/javascript">
+			// $("li").on("mouseover",function(){
+			// 	$(this).css("background","red");
+			// 	}).on("mouseout",function(){
+			// 		$(this).css("background","black");
+			// 	})
+			// 	//off可以传两个参数
+			// 	// 1:event事件类型  event type
+			// 	//2:callback name回调名
+			// $("li:eq(3)").off("mouseover");//事件解绑
+			
+			// $("<li>newLi<li>").appendTo("ul");//将一个新的li添加到ul中，但是没有绑定事件
+			
+			//事件代理：将li的事件绑定到ul上
+			$("ul").on("mouseover","li",function(){
+				$(this).css('background','red');
+			}).on('mouseout','li',function(){
+				$(this).css('background','green');
+			})
+			$('<li>newLi</li>').appendTo('ul');
+		</script>
+	</body>
+</html>

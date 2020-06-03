@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="container">
+			<ul class="list">
+				<li class="item">
+					<p>1</p>
+				</li>
+				<li class="item">
+					<p>2</p>
+				</li>
+				<li class="item">
+					<p class="vip">3</p>
+				</li>
+				<li class="item">
+					<p>4</p>
+				</li>
+				<li class="item">
+					<p>5</p>
+				</li>
+			</ul>
+		</div>
+		<script src="../JQ/jquery-3.4.1.js"></script>
+		<script>
+			var $li2 = $("li:eq(1)");
+			$li2.children().css("background","red");
+			$li2.parent().css("color","yellow");//所有字体颜色
+			//parents表示此节点节点的所有父节点（上级所有节点）
+			$li2.parents("div#container").append("<h2>新元素</h2>");
+			
+			$("#container").find("p.vip").css({
+				background:"black",
+				color:"white"
+			});
+			 $li2.next().css({fontSize:"25px"});//下一个元素
+			 $li2.prev().css({fontSize:"40px"});//上一个元素
+			 
+			 $li2.siblings().css("fontWeight","bold");//第二个li的兄弟元素的字体都变为了粗体。
+		</script>
+	</body>
+</html>

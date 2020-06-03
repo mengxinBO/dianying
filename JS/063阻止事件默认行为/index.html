@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<a href="">text</a>
+		<form>
+			<input type="text" />
+			<input type="submit" value="提交" />
+		</form>
+		<script type="text/javascript">
+			var oLink = document.getElementsByTagName("a")[0];
+			oLink.onclick = function(e){
+				var evt = e || event;
+				console.log("aaaa"); //点击超链接刷新所以没输出。
+				
+				//阻止事件默认行为
+				// return false;
+				// evt.preventDefault();
+				evt.returnValue = false;
+			}
+			var oForm = document.getElementsByTagName("form")[0];
+			var oInput = document.getElementsByTagName("input");
+			
+			oForm.onsubmit = function(){
+				console.log("aaa"); //提交事件会刷新页面，无法输出。
+				return false;
+			}
+			oInput[0].onkeydown = function(){
+				return false;  //输入框无法输入文本
+			}
+			document.oncontextmenu = function(){
+				return false; //在页面右键不弹出菜单
+			}
+		</script>
+	</body>
+</html>

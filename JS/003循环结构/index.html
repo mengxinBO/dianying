@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<script>
+		/*
+				循环结构
+				1.for循环
+				2.while循环
+				3.do...while循环
+		*/
+	   /*
+				for循环
+				语法：
+					for（1；2；3）{
+						4代码块....
+					}
+				1：循环变量初始值	 该位置代码在整个循环过程中只执行一次
+				2：循环条件  	 系统会不断核对该条件是否为真，只要循环体为真，循环一直执行。
+				3：循环增量
+				4：循环体
+				
+				第一次:1243
+				以后：243，直到2不成立，for循环结束
+				*/
+			   
+				// for(var i=0;i<5;i++){
+				// 	console.log("hello world");
+				// }
+				
+				// 练习1  控制台输入1-5
+				// for (var i=1;i<=5;i++){
+				// 	console.log(i);
+				// }
+				
+				// 练习2 	控制台输入5-1
+				// for(var i=5;i>0;i--){
+				// 	console.log(i);
+				// }
+				
+				// 练习3 		控制台输入1-100以内的偶数
+	/*			for(var i=1;i<=100;i++){
+					if(i%2==0){
+						console.log(i);
+					}
+					
+				}*/
+				
+				// 练习4		控制台输入1-100以内个位数为7的数
+	/*			for(var i=1;i<=100;i++){
+					if(i%10==7){
+						console.log(i);
+					}
+				}*/
+				// 练习5	控制台输入1-100以内十位数为7的数
+	/*			for(var i=1;i<=100;i++){
+					if(Math.floor(i/10)==7){
+						console.log(i);
+					}	
+				}*/
+				
+				// 练习6		控制台输入1-100以内不包含7的数
+	/*			for(var i=1;i<=100;i++){
+					if(i%10 != 7 && Math.floor(i/10) != 7){
+						console.log(i);
+					}
+				}*/
+				
+				// 练习7	输入十个随机数,随机数范围[30-90];
+	/*			for(var i = 1;i<=10;i++){
+					console.log(Math.floor(Math.random()*(90+1-30)+30));
+				}*/
+				
+				// 练习8	输入十个随机数,随机数范围[30-90],并求出其中最大值;
+	/*			var max = 0;
+				for(var i = 1;i<=10;i++){
+					var rn = Math.floor(Math.random()*(90+1-30)+30);
+					console.log(rn);
+					max=max>rn?max:rn;
+				}
+				console.log("最大数是："+max);*/
+				
+				// 练习9	输入十个随机数,随机数范围[30-90],并求出其中最大值;
+				var max = 110;
+				for(var i = 1;i<=10;i++){
+				var rn = Math.floor(Math.random()*(90+1-30)+30);
+					console.log(rn);
+					max=max<rn?max:rn;
+				}
+				console.log("最小数是："+max);
+	</script>
+	<body>
+	</body>
+</html>

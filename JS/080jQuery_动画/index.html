@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			div{
+				width: 100px;
+				height: 100px;
+				background-color: red;
+			}
+		</style>
+	</head>
+	<body>
+		<button>显示</button>
+		<button>隐藏</button>
+		<button>停止动画</button>
+		<div></div>
+		<script src="../JQ/jquery-3.4.1.js"></script>
+		<script type="text/javascript">
+			$("button:first").click(function(){
+				//show和hide是以宽、高、透明度三种方式同时变化
+				
+				// $("div").show(3000);//在3000毫秒内显示
+				// $("div").fadeIn(3000); //fade:褪色  只改变透明度
+				// $("div").slideDown(); //像拉窗帘一样，拉下来显示，拉上去隐藏
+				$("div").animate({ //先将宽更改为300px，再将高改为300px
+					width:300
+				},5000).animate({
+					height:300
+				},5000)
+			})
+			
+			$("button:eq(1)").click(function(){
+				// $("div").hide(2000);//在2000毫秒内隐藏
+				// $("div").fadeOut(3000);
+				// $("div").slideUp();
+				$("div").animate({
+					width:100
+				}).animate({
+					height:100
+				})
+			})
+			$("button:last").click(function(){
+				//stop：停止动画，如果参数为空，动画队列中有多个动画，会停止当前动画并执行下一个动画，
+				// 如果参数为true，将停止所有动画
+				$("div").stop(true);
+			})
+		</script>
+	</body>
+</html>

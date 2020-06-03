@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//  .可以表示成除了换行符之外的所有单个字符
+			var reg = /g..gle/gi;
+			var str = "googleg--gle";
+			console.log(reg.test(str)); //两个点为true，一个点为false
+			console.log(str.match(reg));//"google", "g--gle"
+			// * 重复多次匹配，匹配任意次 （0/n）
+			var reg = /g*gle/gi;
+			var str = "gggggle";
+			console.log(reg.test(str));
+			console.log(str.match(reg));
+			// + 至少有一次重复匹配
+			var reg = /g+gle/gi;
+			var str = "gle";
+			console.log(reg.test(str));
+			// ? 进行0或1次匹配
+			var reg = /g?le/gi;
+			var str = "ggle";
+			console.log(reg.test(str),str.match(reg));
+			// []表示可以出现的范围 如：[0-9],[a-z]
+			var reg = /[a-z]/gi;
+			var str = "1245m7s";
+			console.log(reg.test(str),str.match(reg));
+			// \w 数字字母下划线  等同于[0-9a-zA-Z_] \W 非数字字母下划线
+			var reg = /\w+/g;
+			var str = "abc123ABC";
+			console.log(reg.test(str),str.match(reg));
+			// \d 表示数字[0-9] \D 非数字
+			var reg = /\d+/gi;
+			var str = "12345abc";
+			console.log(reg.test(str),str.match(reg));
+			// \s 匹配空格
+			var reg = /\s+/gi;
+			var str = "good good  study!";
+			console.log(str.replace(reg,""));
+			//{m,n}  至少匹配m次，至多匹配n次 {m,} 至少m次 {m} 匹配m次
+			var reg = /go{3,6}gle/gi;
+			var str = "gooogle";
+			console.log(reg.test(str));
+			// /^ 匹配开头  $/  匹配结尾
+			var reg = /^g.+g$/gi;
+			var str = "gooogleg";
+			console.log(reg.test(str));
+			// | 或
+			var reg = /google|baidu|bing|tahoo/gi;
+			var str = "www.baidu.com";
+			console.log(reg.test(str),str.match(reg));
+			// () 分组 将内容作为一个整体进行匹配
+			var reg = /(google){4,6}/gi;
+			var str = "googleaaagooglegooglegooglegoogle";
+			console.log(reg.test(str),str.match(reg));
+			console.log(RegExp.$1);
+			//$1 $2
+			var reg = /(.*)\s(.+)/gi;
+			var str = "taobao baidu";
+			console.log(str.replace(reg,"$2 $1"));
+		</script>
+	</body>
+</html>

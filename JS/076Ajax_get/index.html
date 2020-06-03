@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<h1></h1>
+		<script type="text/javascript">
+			/*1.Ajax全称：Asynchronous JavaScript And XML
+			2.是一种异步加载数据的技术
+			3.可以通过使用Ajax,实现页面的局部刷新
+			通俗的讲就是 Ajax可以不用刷新页面就可以从服务器获取数据并局部更新页面的技术
+			
+			Ajax的核心对象：XMLHttpRequest
+			
+			2.GET：从服务器取得数据   数据放在url中
+			   3.POST：向服务器发送数据   数据放在请求体中
+			*/
+		   // 发送Ajax_get请求分四步:
+		   // 1.创建Ajax对象
+		   var xhr = new XMLHttpRequest();
+		   // 4.监听请求
+		   xhr.onreadystatechange = function(){
+			   //当xhr对象的readyState属性发生改变，这个事件就会触发
+			   // readyState：
+			   // 0 ===> xhr对象已经创建，但是还没有进行初始化操作，就是说刚new出来，还没有open。
+			   // 1 ===> xhr对象已经调用了open
+			   // 2 ===> xhr已经发出了ajax请求
+			   // 3 ===> 已经返回了部分数据
+			   // 4 ===> 数据已经全部返回
+			   if (xhr.readyState !==4){
+				   return; //只处理等于4的情况
+			   }
+			   if(xhr.status>=200 && xhr.status<=300){ //判断http协议给我返回的响应码是多少  200-300说明请求是成功的  数据放在了xhr.responseText的属性中（string）
+			   // 404 请求资源不存在  200  请求成功
+			   document.querySelector("h1").innerHTML = xhr.responseText;
+				   //改为inner.text就会显示换行
+			   }else{
+				   console.error("请求失败");
+			   }
+		   }
+		   // 2.打开这个对象
+				// 第一个参数是请求的方式是get还是post.
+				// 第二个参数是请求资源的路径
+				// 第三个参数是发送ajax请求 是用同步（true）还是异步发送（false）
+		   xhr.open("get","./test.txt",true);
+		   // 3.发送请求
+		   xhr.send();
+		</script>
+	</body>
+</html>

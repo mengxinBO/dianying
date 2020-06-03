@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			#test{
+				width: 100px;
+				height: 100px;
+				background-color: red;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="test"></div>
+		<script type="text/javascript">
+			var oDiv = document.getElementById("test");
+			oDiv.onclick = function(e){
+				var evt = e || event;
+				console.log(evt.clientX,evt.clientY); //鼠标指针距离可视化区域左侧和顶部的距离，含有body默认的padding值。
+				console.log(evt.pageX,evt.pageY);//无滚动条时和上述一致，有滚动条时是相对距离。
+				console.log(evt.offsetX,evt.offsetY);//距离事件源左侧和顶部的距离，不包含body默认padding值。
+			}
+		</script>
+	</body>
+</html>

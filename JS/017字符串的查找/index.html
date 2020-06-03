@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+			/*
+				indexOf()
+				【格式】字符串.indexOf(子串，开始查找的位置)；
+				返回值：如果在字符串中查找到了字符串第一次出现的
+						位置，返回子串出现的位置，没查找到返回0.
+			*/
+		   // var str="abcabcabc";
+		   // alert(str.indexOf("abc",1)); //3
+		   
+		   /*
+				lastIndexOf()
+				【格式】字符串.lastIndexOf(子串)；
+				返回值：子串在字符中最后一次出现的为位置，如果没有
+						返回-1.
+		   */
+		  // var str="abcabcabc";
+		  // alert(str.lastIndexOf("abc")); //6
+		  
+		  /*
+				search()	参数可以是正则表达式
+				"abc"	/abc/ig
+				【注】正则表达式可以添加修饰符，i代表忽略大小写，
+					g代表全局匹配。
+		  */
+		 var str="Abcabcabc";
+		 alert(str.search(/abc/i)); // 0
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

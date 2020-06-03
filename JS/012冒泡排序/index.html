@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+			/*
+			冒泡排序
+				【原理】
+				前后两个数两两进行比较，如果符合交换条件，交换位置。直到所有数据排序
+				完成，结束比较。
+			*/
+		   var arr = [9,8,7,6,5,4];
+		   
+		   /*
+				第一轮
+					9,8,7,6,5,4
+					8,9,7,6,5,4
+					8,7,9,6,5,4
+					8,7,6,9,5,4
+					8,7,6,5,9,4
+					8,7,6,5,4,9
+					【注】 每一轮取出了最大的数，放在正确位置。
+				后面同理工比较5轮
+		   */
+		  for(var i=0;i<arr.length-1;i++){  //比较的轮次
+		  //每一轮比较的次数
+			  for(var j = 0;j<arr.length-i-1;j++){
+				  //判断前后两个数是否符合交换条件
+				  if(arr[j]>arr[j+1]){
+					  var tmp=arr[j+1];
+					  arr[j+1]=arr[j];
+					  arr[j]=tmp;
+				  }
+			  }
+			  
+		  }
+		  alert(arr);
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

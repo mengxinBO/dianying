@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			body,html{
+				margin: 0;
+				padding: 0;
+			}
+			body{
+				overflow: hidden; /* 使碰撞时出现的滚动条消失 */
+			}
+			#div1{
+				width: 70px;
+				height: 70px;
+				background-color: black;
+				position: absolute;
+				left: 0;
+				top: 0;
+			}
+			#div2{
+				width: 50px;
+				height: 50px;
+				position: absolute;
+				left: 300px;
+				top: 300px;
+				background-color: red;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="div1"></div>
+		<div id="div2"></div>
+		<script type="text/javascript">
+			/*
+				querySelector(‘.className') 方法返回匹配指定 CSS 选择器
+				元素的第一个子元素 。 该方法只返回匹配指定选择器的第一个元
+				素。如果要返回所有匹配元素，需要使用 querySelectorAll(‘.c
+				lassName') 方法替代．
+				
+				query选择符选出来的元素及元素数组是静态的，而getElement这
+				种方法选出的元素是动态的。静态的就是说选出的所有元素的数组
+				，不会随着文档操作而改变．
+				在使用的时候getElement这种方法性能比较好，query选择符则比
+				较方便．
+					
+				obj.style：这个方法只能JS只能获取写在html标签中的写在styl
+				e属性中的值（style=”…”），而无法获取定义在<style type="te
+				xt/css">里面的属性。
+			*/
+			var speedx = 1;
+			var speedy = 1;
+			
+			var oDiv1 = document.querySelector("div");
+			var oDiv2 = document.getElementById("div2");
+			
+			oDiv1.speedx = 4; //分别定义他们的速度
+			oDiv1.speedy = 2;
+			oDiv2.speedx = 4;
+			oDiv2.speedy = 2;
+			function move(el){
+				var currentleft = parseInt(getComputedStyle(el).left); //使用parseInt，得到的值不含有px。
+				var currenttop = parseInt(getComputedStyle(el).top);
+				
+				check_border_collision(el);
+				var tempx,tempy; //碰撞后交换他们的速度
+				if(check_block_collision(oDiv1,oDiv2)){
+					tempx = oDiv1.speedx;
+					tempy = oDiv1.speedy;
+					
+					oDiv1.speedx = oDiv2.speedx;
+					oDiv1.speedy = oDiv2.speedy;
+					
+					oDiv2.speedx= tempx ;
+					oDiv2.speedy= tempy ;
+				}
+				
+				var left = currentleft + el.speedx;
+				var top = currenttop +el.speedy;
+				
+				el.style.left = left +"px";
+				el.style.top = top + "px";
+			}
+			
+			function check_border_collision(e){//检测与窗口的边缘碰撞
+				var style = window.getComputedStyle(e);
+				var left = parseInt(style.left);
+				var top = parseInt(style.top);
+				var w = parseInt(style.width);
+				var h = parseInt(style.height);
+				
+				if(left<0){
+					// left = 0;
+					e.speedx *= -1;
+				}
+				if(left>window.innerWidth - w){
+					left = window.innerWidth - w;
+					e.speedx *= -1;
+					
+				}
+				if(top<0){
+					top = 0;
+					e.speedy *= -1;
+				}
+				if(top>window.innerHeight - h){
+					top = window.innerHeight - h;
+					e.speedy *= -1;
+				}
+				
+				e.style.left = left +"px"; //需要将纠正的位置设定到e的样式上
+				e.style.top = top + "px";
+			}
+			
+			function check_block_collision(block1,block2){ //验证两个div是否相撞
+				var left1 = parseInt(window.getComputedStyle(block1).left);
+				var left2 = parseInt(window.getComputedStyle(block2).left);
+				
+				var top1 = parseInt(window.getComputedStyle(block1).top);
+				var top2 = parseInt(window.getComputedStyle(block2).top);
+				
+				var width1 = parseInt(window.getComputedStyle(block1).width);
+				var width2 = parseInt(window.getComputedStyle(block2).width);
+				
+				var height1 = parseInt(window.getComputedStyle(block1).height);
+				var height2 = parseInt(window.getComputedStyle(block2).height);
+				var center1 = {
+					x: left1 + width1 / 2,
+					y: top1 + height1 / 2
+				}
+				var center2 = {
+					x: left2 + width2 / 2,
+					y: top2 + height2 / 2
+				}
+				
+				var diffx = Math.abs(center1.x - center2.x);//求距离使用绝对值
+				var diffy = Math.abs(center1.y - center2.y);
+				
+				if(diffx<(width1+width2) / 2 && diffy<(height1+height2) / 2){
+					return true;
+				}
+				return false;
+			}
+			
+			setInterval(function(){
+				move(oDiv1);
+				move(oDiv2);
+			},20);
+		</script>
+	</body>
+</html>
